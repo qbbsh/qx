@@ -1,0 +1,36 @@
+# shellcheck shell=dash disable=SC2016
+# "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/${1}.txt"
+# "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/${1}.txt"
+
+(
+    # Section: Arg
+    WORK_DIR="$(x wsroot)"
+    # _PREFIX="https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release"
+    _PREFIX="https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release"
+    # _PREFIX="https://mirror.ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release"
+
+    # Section: Main
+    {
+        x job foreach '
+            curl -L "${_PREFIX}/${1}.txt" > "${WORK_DIR}/${1}.list" || {
+                x log :update__ruleset error "update failed ==> ${1}"
+                return 1
+            }
+    ' <<A
+apple
+cncidr
+direct
+gfw
+google
+greatfire
+icloud
+lancidr
+private
+proxy
+reject
+telegramcidr
+tld-not-cn
+A
+    } || exit 1
+
+)

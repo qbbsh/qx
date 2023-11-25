@@ -1,0 +1,41 @@
+{
+    "files.defaultLanguage": "shellscript",
+    "files.associations": {
+        "**/*.awk": "awk",
+        "**/*.json": "json",
+        "**/*.md": "markdown",
+        "**/*.yml": "yaml",
+        "**/*.py": "python",
+        "**/*.js": "javascript",
+        "**/*.ts": "typescript",
+        "**/LICENSE": "TXT",
+        "**/.x-cmd/*": "shellscript",
+        "**/.x-cmd/*.yml": "yaml",
+    },
+    "files.trimTrailingWhitespace": true,
+    "editor.detectIndentation": true,
+    "editor.tabSize": 4,
+    "explicitFolding.rules": {
+        "typescript": [
+            {
+                "beginRegex": "^\\s*\\/\\/\\s*Section:?",
+                "endRegex": "^\\s*\\/\\/\\s*EndSection",
+                "autoFold": true
+            }
+        ],
+        "javascript": [
+            {
+                "beginRegex": "^\\s*\\/\\/\\s*Section:?",
+                "endRegex": "^\\s*\\/\\/\\s*EndSection",
+                "autoFold": true
+            }
+        ],
+        "*": [
+            {
+                "beginRegex": "^\\s*#\\s*Section:?",
+                "endRegex": "^\\s*#\\s*EndSection",
+                "autoFold": true
+            }
+        ]
+    },
+}
